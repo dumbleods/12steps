@@ -1,0 +1,56 @@
+/* OUTPUT_FORMAT("elf32-h8300") */
+OUTPUT_ARCH(h8300h)
+ENTRY("_start")
+
+MEMORY
+{
+    romall(rx)    :  o = 0x000000, l = 0x080000 /* 512KB */
+    vectors(r)    :  o = 0x000000, l = 0x000100 /* top of ROM */
+    rom(rx)       :  o = 0x000100, l = 0x07ff00
+
+    ramall(rwx)   :  o = 0xffbf20, l = 0x004000 /* 16KB */
+    data(rwx)     :  o = 0xfffc20, l = 0x000300
+    stack(rw)     :  o = 0xffff00, l = 0x000000 /* end of RAM */
+}
+
+SECTIONS
+{
+    .vectors : {
+        vector.o(.data)
+    } > vectors /* place interrupt memory space */
+
+    .text : {
+        _text_start = . ;
+        *(.text)
+        _etext = . ;
+    } > rom /* place ROM space */
+
+    .rodata : {
+        _rodata_start = . ;
+        *(.strings)
+        *(.rodata)
+        *(.rodata.*)
+        _erodata = . ;
+    } > rom /* place ROM space */
+
+    .data : {
+        _data_start = . ;
+        *(.data)
+        _edata = . ;
+    } > data /* place ROM space */ AT> rom /* specify physical address */
+
+    .bss : {
+        _bss_start = . ;
+        *(.bss)
+        *(COMMON)
+        _ebss = . ;
+    } > data /* place ROM space */ AT> rom /* specify physical address */
+
+    . = ALIGN(4);
+    _end = . ;
+
+    .stack : {
+            _stack = . ;
+    } > stack /* place stack place */
+}
+
