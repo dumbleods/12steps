@@ -2,6 +2,6 @@
 #define _LIB_H_INCLUDED_
 
 int putc(unsigned char c); /* for character */
-int puts(unsignec har *str); /* for string */
+int puts(unsigned char *str); /* for string */
 
 #endif

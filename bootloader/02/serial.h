@@ -1,5 +1,5 @@
-#ifndef _LIB_H_INCLUDED_
-#define _LIB_H_INCLUDED_
+#ifndef _SERIAL_H_INCLUDED_
+#define _SERIAL_H_INCLUDED_
 
 int serial_init(int index); /* initialize device */
 int serial_is_send_enable(int index); /* check enable */

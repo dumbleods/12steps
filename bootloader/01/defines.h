@@ -1,5 +1,5 @@
-#ifndef _LIB_H_INCLUDED_
-#define _LIB_H_INCLUDED_
+#ifndef _DEFINES_H_INCLUDED_
+#define _DEFINES_H_INCLUDED_
 
 #define NULL ((void *)0)
 #define SERIAL_DEFAULT_DEVICE 1

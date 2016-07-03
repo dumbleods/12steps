@@ -9,7 +9,7 @@ char *strcpy(char *dst, const char *src);
 int strcmp(const char *s1, const char *s2);
 int strncmp(const char *s1, const char *s2, int len);
 int putc(unsigned char c); /* for character */
-int puts(unsignec har *str); /* for string */
+int puts(unsigned char *str); /* for string */
 int putxval(unsigned long value, int column); /* output hex number */
 
 #endif

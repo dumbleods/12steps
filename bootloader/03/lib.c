@@ -51,7 +51,7 @@ char *strcpy(char *dst, const char *src)
     return d;
 }
 
-char strcmp(const char *s1, const char *s2)
+int strcmp(const char *s1, const char *s2)
 {
     while(*s1 || *s2)
     {
