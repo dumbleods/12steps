@@ -8,8 +8,8 @@ struct elf_header {
         unsigned char class;
         unsigned char format;
         unsigned char version;
-        unsigned abi;
-        unsigned abi_version;
+        unsigned char abi;
+        unsigned char abi_version;
         unsigned char reserve[7];
 } id;
 short type;
